@@ -1,0 +1,83 @@
+{% extends 'template.html' %}
+
+{% block header %}
+    {% include "header.html" %}  
+{% endblock %}
+
+
+{% block content %}
+   <div>
+        <div class="col-3 cc"><h2>Lịch sử mua hàng</h2></div>
+        <div class="col-9 bg over_flow">
+            
+                <table class="table_of_card">
+                    
+                    <tr class="header_title padding">
+                        <td class="padding">Mã đơn hàng</td>
+                        <td class="padding">Số lượng sản phẩm</td>
+                        <td class="padding">Tổng giá</td>
+                        <td class="padding">Thời gian</td>
+                        <td class="padding">Trạng thái</td>
+                        <td class="padding"></td>
+                    </tr>
+                    {% for order in orders %}
+                    <tr>
+                        <td class="padding">
+                            {{order['id_order']}}
+                        </td>
+                        <td class="padding">{{order['order_quantity']}}</td>
+                        <td class="padding">{{order['total_cost']}}</td>
+                        <td class="padding">{{order['time_order']}}</td>
+                        <td class="padding">{{order['order_status']}}</td>
+                        <td class="padding" id="{{order['id_order']}}" onclick="show_hide(this.id)">Xem chi tiết</td>
+                        
+                    </tr>
+                   
+                    
+                    {% endfor %}
+                </table>
+            
+        </div>
+       
+        
+        {% for order in orders %}
+        <div class="hidden display_fix col-a-12 " id="{{order['id_order']}}1">
+            <div class="in_fix">
+                <div class="x padding x_postion" id="{{order['id_order']}}" onclick="show_hide(this.id)" title="Close">X</div>
+                <div>
+                    <table class="col-a-12 ">
+                        <tr class="col-a-12">
+                            <td class="col-a-8">Sản Phẩm</td>
+                            <td class="col-a-2">Số Lượng</td>
+                            <td class="col-a-2">Giá Trị</td>
+                        </tr>
+                {% for detail in details %}
+                    {% if detail['order_detail.id_order'] == order['id_order'] %}
+                        <tr class="col-a-12">
+                                <td class="col-a-8"><img src="" width="50px" height="50px">,{{detail['shoes_name']}},{{detail['size']}}</td>
+                                <td class="col-a-2">{{detail['quantity']}}</td>
+                                <td class="col-a-2">{{detail['sub_price']}}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                    </table>
+                
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+                    
+                    
+                
+        
+        
+   </div>
+{% endblock %}
+
+<!-- footer -->
+
+{% block footer %}
+    {% include "footer.html" %} 
+{% endblock %}
+
+<!-- footer -->

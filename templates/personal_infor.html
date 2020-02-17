@@ -1,0 +1,124 @@
+{% extends "template.html" %}  
+
+
+ 
+{% block header %}
+    {% include "header.html" %}  
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="col-3">
+            <div>
+                <h2>Thông tin khách hàng</h2>
+                <ul style="max-width: 300px;">
+                    <li>Thông tin</li>
+                    <li>Chỉnh sửa thông tin</li>
+                    <li onclick="display('form_pass')">Đổi mật khẩu</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9 bg out_bottom">
+            <div>
+                <div class="text_center">
+                    <table class="margin-auto">
+                        <tr>
+                            <td>
+                                    <label>Tài khoản :</label>
+                            </td>
+                            <td><label>{{persons[0]['user_uname']}}</label></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <label>Tên :</label>
+                            </td>
+                            <td>
+                                    <label>{{persons[0]['uname']}}</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <label>Số điện thoại :</label>
+                            </td>
+                            <td>
+                                    <label>{{persons[0]['user_phone_number']}}</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <label>Đia chỉ :</label>
+                            </td>
+                            <td>
+                                    <label>{{persons[0]['address']}}</label>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </div>
+                <div class="bottom_right  col-a-12">
+                    <button class="button margin-auto" onclick="display('person_in4')">Cập nhật thông tin</button>
+                </div>
+                <div class="hidden display_fix" id="person_in4">
+                    <div class="in_fix">
+                        <form action="/personal/update" method="POST">
+                            <div>
+                            <label class="input">Tài khoản</label>
+                            <label class="input">{{persons[0]['user_uname']}}</label>
+                            </div>
+                            <div>
+                            <label class="input">Tên :</label>
+                            <label class=""><input class="input" type="text" name="uname" value="{{persons[0]['uname']}}"></label>
+                            </div>
+                            <div>
+                            <label class="input">Số điện thoại :</label>
+                            <label class=""><input class="input" type="text" name="phone_number" value="{{persons[0]['user_phone_number']}}"></label>
+                            </div>
+                            <div>
+                            <label class="input">Địa chỉ :</label>
+                            <label class=""><input class="input" type="textarea" name="address" value="{{persons[0]['address']}}"></label>
+                            </div>
+                            <div>
+                            <label class="input">
+                                <button type="submit" value="">Cập nhật</button>
+                            </label>
+                            </div>
+                            <p class="input">
+                                    <div onclick="display('person_in4')" >Hủy</div>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <div class="hidden display_fix" id="form_pass">
+                    <div class="x" onclick="display('form_pass')">
+                        X
+                    </div>
+                    <div>
+                        <form action="/personl/changepass" method="POST">
+                        <p>{{error}}</p>
+                        <p>Mật khẩu hiện tại:</p>
+                        <input type="password" name="current_pw" required>
+                        <p>Mật khẩu mới :</p>
+                        <input type="password" name="new_pw" required>
+                        <p>Xác nhận mật khẩu mới :</p>
+                        <input type="password" name="cf_new_pw" required>
+                        <button type="submit">Thay đổi</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+
+
+
+<!-- footer -->
+
+{% block footer %}
+    {% include "footer.html" %} 
+{% endblock %}
+
+<!-- footer -->
