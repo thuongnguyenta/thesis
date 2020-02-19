@@ -1,0 +1,95 @@
+{% extends "template.html" %}  
+
+ <!-- header -->
+ {% block header %}
+ {% include "header.html" %}  
+{% endblock %}
+<!-- header -->
+
+
+
+<!-- body -->
+{%block content %}
+    <div>
+        <div class="">
+            <!-- Tên -->
+        </div>
+        <div>
+            <!-- Giữa -->
+            <div class="col-s-8">
+                <div class="col-2">
+                    {% for shoes_by_id in shoes_of_id %}
+                    <img class="margin" src="{{shoes_by_id['shoes_image']}}" width="50px" height="50px" title="{{shoes_by_id['shoes_color']}}" >
+                    {% endfor %}
+                </div>
+                <div class="col-6">
+                    <div>
+                        {{shoes_of_id[0]['shoes_name']}}
+                    </div>
+                    <div>
+                            <div class="img_shoe">
+                                <img src="{{shoes_of_id[0]['shoes_image']}}" width="250px" height="250px" />
+                                <div class="discount">
+                                    Giảm {{shoes_of_id[0]['shoes_sale_percent']}} %
+                                </div>
+
+                                <!-- <div class="sold_out">
+                                    Hết Hàng
+                                </div> -->
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+                    {{shoes_of_id[0]['discribe']}}
+                </div>
+                
+                <div>
+                    <div style="display: flex;justify-content: center;
+                    padding: 2px;">
+                        <div class="line-through">{{shoes_of_id[0]['shoes_cost']}} đ</div>
+                        <div>{{shoes_of_id[0]['shoes_cost'] * (1- shoes_of_id[0]['shoes_sale_percent']/100 )}} đ</div>
+                    </div>
+
+                </div>
+                
+                <div>
+                    <form action="/cart/insert/{{shoes_of_id[0]['id_shoes']}}" method="POST">
+                        <p>Size :</p>
+                            <select  name="size">
+                                {% for i in range(36,44) %}
+                                <option>{{i}}</option>
+                                {% endfor %}  
+                            </select>
+                        
+                        <div>
+                            <p>Màu :</p>  
+                            <select  name="color">
+                                {% for shoes_by_id in shoes_of_id %}
+                                    <option>{{shoes_by_id['shoes_color']}}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="number" name="number">
+                        </div>
+                    <button class="button" type="submit">Mua Sản Phẩm</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+        <div>
+            <!-- Sản Phẩm Khác -->
+        </div>
+    </div>
+{% endblock %}
+
+<!-- body -->
+
+<!-- footer -->
+
+{% block footer %}
+    {% include "footer.html" %} 
+{% endblock %}
+
+<!-- footer -->

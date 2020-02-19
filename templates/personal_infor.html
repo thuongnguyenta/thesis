@@ -1,0 +1,130 @@
+{% extends "template.html" %}  
+
+
+ 
+{% block header %}
+    {% include "header.html" %}  
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="col-3">
+            <div>
+                <h2>Thông tin khách hàng</h2>
+                <ul style="max-width: 300px;">
+                    <li>Thông tin</li>
+                    <li>Chỉnh sửa thông tin</li>
+                    <li onclick="display('form_pass')">Đổi mật khẩu</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9 bg out_bottom">
+            <div>
+                <div class="text_center">
+                    <table class="margin-auto">
+                        <tr>
+                            <td>
+                                    <label class="input elemnent_ct margin-padding">Tài khoản :</label>
+                            </td>
+                            <td><label class="input elemnent_ct margin-padding">{{persons[0]['user_uname']}}</label></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <label class="input elemnent_ct margin-padding">Tên :</label>
+                            </td>
+                            <td>
+                                    <label class="input elemnent_ct margin-padding ">{{persons[0]['uname']}}</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <label class="input elemnent_ct margin-padding">Số điện thoại :</label>
+                            </td>
+                            <td>
+                                    <label class="input elemnent_ct margin-padding">{{persons[0]['user_phone_number']}}</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    <label class="input elemnent_ct margin-padding">Đia chỉ :</label>
+                            </td>
+                            <td>
+                                    <label class="input elemnent_ct margin-padding">{{persons[0]['address']}}</label>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </div>
+                <div class="bottom_right  col-a-12">
+                    <button class="button margin-auto" onclick="display('person_in4')">Cập nhật thông tin</button>
+                </div>
+                <div class="hidden display_fix" id="person_in4">
+                    <div class="in_fix">
+                        <div class="content_infix">
+                            <div class="x" onclick="display('person_in4')">X</div>
+                            <form action="/personal/update" method="POST">
+                                <table>
+                                    <tr>
+                                        <td class="input elemnent_ct">Tài khoản :</td>
+                                        <td class="input elemnent_ct">{{persons[0]['user_uname']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="input elemnent_ct">Tên :</td>
+                                        <td class="input elemnent_ct"><input class="input elemnent_ct" type="text" name="uname" value="{{persons[0]['uname']}}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="input elemnent_ct">Số điện thoại :</td>
+                                        <td class="input elemnent_ct"><input class="input elemnent_ct" type="text" name="phone_number" value="{{persons[0]['user_phone_number']}}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="input elemnent_ct">Địa chỉ :</td>
+                                        <td class="input elemnent_ct"><input class="input elemnent_ct" type="textarea" name="address" value="{{persons[0]['address']}}"></td>
+                                    </tr>
+                                    
+
+                                </table>
+                                <div class="margin">
+                                        <label class="input elemnent_ct"><button class="elemnent_ct" type="submit" value="">Cập nhật</button></label>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden display_fix" id="form_pass">
+                    <div class="in_fix">
+                        <div class="x" onclick="display('form_pass')">
+                            X
+                        </div>
+                        <div class="content_infix">
+                            <form action="/personal/changepass" method="POST" class="">
+                            <p>{{error}}</p>
+                            <p class="elemnent_ct">Mật khẩu hiện tại:</p>
+                            <input class="elemnent_ct" type="password" name="current_pw" required>
+                            <p class="elemnent_ct">Mật khẩu mới :</p>
+                            <input class="elemnent_ct" type="password" name="new_pw" required>
+                            <p class="elemnent_ct">Xác nhận mật khẩu mới :</p>
+                            <input class="elemnent_ct" type="password" name="cf_new_pw" required>
+                            <br>
+                            <button class="elemnent_ct margin" type="submit">Thay đổi</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+
+
+
+<!-- footer -->
+
+{% block footer %}
+    {% include "footer.html" %} 
+{% endblock %}
+
+<!-- footer -->

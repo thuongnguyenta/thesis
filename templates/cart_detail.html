@@ -1,0 +1,70 @@
+{% extends "template.html" %}  
+
+ <!-- header -->
+ {% block header %}
+ {% include "header.html" %}  
+{% endblock %}
+<!-- header -->
+
+
+{% block content %}
+            <div>
+                <div class="x"><a href="/">X</a></div>
+                <div class="col-3">
+                    
+                    <div><h2>Giỏ Hàng</h2></div>
+                </div>
+                <div class="list_of_cart over_flow col-9 bg">
+                    <table class="table_of_card">
+                        <tr>
+                            <td>Sản Phẩm</td>
+                            <td>Số Lượng</td>
+                            <td>Thành Tiền</td>
+                            <td></td>
+                        </tr>
+                        {% for shoe in shoes%}
+                        <tr class="shoes_of_cart">
+                            <td><img src="" width="50px" height="50px"> {{shoe['shoes_name']}},{{shoe['size']}},{{shoe['color']}}</td>
+                            <td>{{shoe['number_of_shoes']}}</td>
+                            <td>{{shoe['sub_price'] * shoe['number_of_shoes']}}</td>
+                            <td><a href="/cart_detail/delete/{{shoe['id_cart_detail']}}">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                <div>
+                    
+                    {% if shoes %}
+                        <div>
+                            <table>
+                                <tr>
+                                    <td>Tổng giá giày</td>
+                                    <td>{{shoes[0]['cart_total']}} đ</td>
+                                </tr>
+                                <tr>
+                                    <td>Phí Ship</td>
+                                    <td>30000 đ</td>
+                                </tr>
+                                <tr>
+                                    <td>Tổng Chi Phí</td>
+                                    <td>{{shoes[0]['cart_total']+30000}} đ</td>
+                                </tr>
+                            </table>
+                            <button><a href="/cart/payment/{{shoes[0]['cart_detail.id_cart']}}">Thanh Toán</a></button>
+                            <button><a href="/">Mua Thêm Sản Phẩm </a></button>
+                        </div>
+                    {% else %}
+                        bạn chưa có sp
+                    {% endif %}
+                </div>
+                    
+                </div>
+               
+            </div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include "footer.html" %} 
+{% endblock %}
+
+<!-- footer -->

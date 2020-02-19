@@ -1,0 +1,358 @@
+* {
+    box-sizing: border-box;
+  }
+
+/* header */
+
+.header{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    page-break-after: 2px;
+}
+
+.top_header{
+    display: flex;
+    height: 100px;
+    margin: 3px;
+    justify-content: space-between;
+}
+.bottom_header{
+    color: black;
+    text-transform: uppercase;
+    font: 20px;
+    background-color: aqua
+}
+.bottom_header ul li {
+    margin :5px;
+}
+.margin-auto{
+    margin :auto;
+}
+.bottom_header ul li {
+    display: inline-block;
+}
+.bottom_header ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+/* header */
+
+.img_shoe{
+    position: relative;
+}
+.discount{
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    min-width: 80px;
+    height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(70, 243, 70); 
+    color :white;
+    line-height: 22px;
+    padding: 3px;
+}
+.line-through{
+    text-decoration: line-through;
+    padding: 2px;
+    color:  #aaaaaa;
+
+}
+.bigger{
+    padding: 2px;
+    transform: scale(1.1);
+}
+.shoe{
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    padding: 3px;
+}
+.sold_out{
+    position: absolute;
+    top: 20%;
+    left: 2%;
+    min-width: 80px;
+    height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(246, 88, 88); 
+    color :white;
+    line-height: 22px;
+    padding: 3px;
+}
+.middle{
+    margin:auto;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+.person_list{
+    position: fixed;
+    width: 200px;
+    top:10px;
+    right: 10px;
+    height: 300px;
+    background-color: #aaaaaa;
+}
+.display_flex{
+    display: flex;
+    justify-content: space-between;
+}
+.display_fix{
+    border-radius: 0.5%;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(42, 42, 41, 0.3);
+    top:0px;
+    left: 0px;
+    
+
+}
+.border_radius{
+    width: 50px;
+    
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #000000;
+}
+.margin{
+    margin:2%;
+}
+.in_bg{
+    position: relative;
+    background-color: white;
+    border-radius: 1%;
+}
+.margin-padding{
+    margin: 5px;
+    padding: 10px;
+}
+.in_fix{
+    position: relative;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+    background-color: white;
+    border-radius: 1%
+
+}
+.content_infix{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+.elemnent_ct{
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+}
+.x_postion{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+.over_flow{
+    overflow: auto;
+}
+.input{
+
+}
+.x{
+    border: 1px solid #aaaaaa;
+    line-height: 18px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    /* background-color: rgb(246, 40, 40); */
+    margin: 5px;
+
+}
+.x:hover{
+    background-color:rgb(246, 40, 40);
+}
+.padding{
+    padding: 1%;
+}
+.text_white{
+    color:white;
+    font-size: 20px;
+}
+
+.color_shoe{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2px;
+}
+.text_center{
+    margin: 5%;
+    text-align: center;
+}
+
+.small_image{
+    width: 50px;
+    height: 50px;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+.price{
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+.list_of_cart{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+.table_of_card{
+    width: 95%;
+    padding: 2%;
+    margin:auto;
+}
+
+.bg{
+    min-height: 300px;
+    background-color: #dfdfdf7e;
+    border-radius: 1%;
+    max-height: 500px;
+    overflow: auto;
+}
+a{
+text-decoration: none;
+}
+
+.size_filter{
+    border :1px solid #dfdfdf7e;
+    padding: 5px;
+    /* min-width: 20px; */
+    margin: 5px;
+    float: left;
+}
+li {
+    min-width: 50px;
+    min-height: 25px;
+    text-align: center;
+}
+ul {
+    list-style: none;
+    }
+
+.filer_price ul li{
+    min-width: 200px;
+}
+.header_title{
+    margin: 5px;
+    padding: 5px;
+    background-color: aliceblue;
+}
+.button {
+    width: 200px;
+    height: 50px;
+    border-color:transparent;
+    background-color: #ffffff;
+}
+.search{
+    /* padding: 20px; */
+    border-radius: 50px;
+    width: 350px;
+    height: 50px;
+    border: 1px solid #000000;
+}
+.input_search{
+    border-color:transparent;
+    margin-left:25px; 
+    width: 300px;
+    height: 48px;
+    font-weight: bold;
+}
+.button_search{
+    border-color:transparent;
+    width: 70px;
+    height: 48px;
+    margin-right:25px;
+    background-color:#ffffff;
+}
+
+.unsearch{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    height: 50px;
+    padding: 5px;
+    justify-content: space-around;
+}
+
+/* .bottom_right{
+    position: fixed;
+    bottom: 5%
+} */
+
+.out_bottom{
+    position: relative;
+}
+
+[class*="col-"] {
+width: 100%;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+  }
+
+  .col-a-1 {width: 8.33%;}
+  .col-a-2 {width: 16.66%;}
+  .col-a-3 {width: 25%;}
+  .col-a-4 {width: 33.33%;}
+  .col-a-5 {width: 41.66%;}
+  .col-a-6 {width: 50%;}
+  .col-a-7 {width: 58.33%;}
+  .col-a-8 {width: 66.66%;}
+  .col-a-9 {width: 75%;}
+  .col-a-10 {width: 83.33%;}
+  .col-a-11 {width: 91.66%;}
+  .col-a-12 {width: 100%;}
+
+@media only screen and (min-width: 600px) {
+/* For tablets: */
+.col-s-1 {width: 8.33%;}
+.col-s-2 {width: 16.66%;}
+.col-s-3 {width: 25%;}
+.col-s-4 {width: 33.33%;}
+.col-s-5 {width: 41.66%;}
+.col-s-6 {width: 50%;}
+.col-s-7 {width: 58.33%;}
+.col-s-8 {width: 66.66%;}
+.col-s-9 {width: 75%;}
+.col-s-10 {width: 83.33%;}
+.col-s-11 {width: 91.66%;}
+.col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
